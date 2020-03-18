@@ -1,0 +1,71 @@
+\documentclass[a4paper, 12pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \section{Wie ist ein C-Programm aufgebaut?}
+
+  \subsection{Header.h}
+Mittels Präprozessoranweisung (\inlinecode{#include}) können \emph{Header-Dateien} in
+C-Programme eingebunden werden. Diese enthalten \inlinecode{#define} Anweisungen zur
+Definition von Konstanten und Macros sowie Funktions- und Strukturprototypen
+(Deklarationen) und erlauben somit eine modulare und damit übersichtliche
+Strukturierung des Programmes. Außerdem können sie als einfache Dokumentation
+dienen, da z.B. Ein- und Ausgaben einer Funktion direkt aus der Deklaration
+erkennbar sind.
+
+\subsection{Quellcode.c}
+Quellcodedateien enthalten die eigentliche Programmlogik/den Programmablauf. Hierzu gehört die Datei \emph{main.c} sowie alle nötigen \emph{Funktionsdefinitionen}.
+
+Innerhalb der \emph{main.c} werden erst alle Präprozessoranweisungen wie
+\inlinecode{#include} oder \inlinecode{#define} gelistet. Als Einstiegspunkt des Programmes gilt dann
+die \inlinecode{main()} Funktion, welche dem Betriebssystem oft den Integer-Wert $0$
+zur Rückmeldung eines Fehlerfreien Ablaufes zurückgibt; Für Microcontroller ist
+dies jedoch nicht von Bedeutung, da sie zum einen kein Betriebssystem besitzen
+und zum anderen meist in einer Endlosschleife innerhalb der
+\inlinecode{main()}Funktion laufen.
+
+
+\vspace{\parskip}
+\begin{lstlisting}
+  #include <stdio.h>
+  #define KONST 0
+  
+  int main() {
+   ... 
+    return 0;
+  }
+\end{lstlisting}
+
+  \section{Was sind Assembler, Linker, Compiler?}
+
+  \subsection{Assembler}
+
+  \subsection{Linker}
+
+  \subsection{Compiler}
+  
+  \section{Was ist eine Entwicklungsumgebung?}
+  Eine Entwicklungsumgebung ist ein Programm, das mehrere Programme zur
+  Softwareentwicklung, wie z.B. einen Programmcode-Editor, Syntax-Highlighting,
+  Compiler, Linker, Debugger, GUI, etc., für eine oder mehrere Programmiersprachen bereitstellt.
+
+  \section{Welche Aufgabe haben die Module eines C-Programms?}
+  siehe 1: Header + C-dateien
+
+
+  
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:

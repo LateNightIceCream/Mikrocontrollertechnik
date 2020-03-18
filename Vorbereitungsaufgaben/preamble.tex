@@ -1,0 +1,153 @@
+%%% SST LAB PROTOCOLL PREAMBLE
+%%% 2019
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ngerman]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage[many]{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage{pdfpages}
+\usepackage{dashrule}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{trfsigns}
+\usepackage{booktabs}
+\usepackage[european]{circuitikz}
+\usepackage{listings}
+\usepackage{fontspec}
+\usepackage{tgheros}
+\usepackage{tgcursor}
+
+%%% DOCUMENT GEOMETRY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={0.6180339887498948\paperwidth,0.6180339887498948\paperheight},
+ top = 0.1458980337503154\paperheight,
+ bottom = 0.1458980337503154\paperheight
+ }
+\setlength{\jot}{0.013155617496424828\paperheight}
+\linespread{1.1458980337503154}
+
+\setlength{\parskip}{0.013155617496424828\paperheight} % paragraph spacing
+
+%%% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setmainfont{TeX Gyre Heros}
+\setmonofont{Inconsolatazi4}
+
+%%% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../colors}
+
+%\definecolor{red1}{HTML}{f38181}
+%\definecolor{yellow1}{HTML}{fce38a}
+%\definecolor{green1}{HTML}{95e1d3}
+%\definecolor{blue1}{HTML}{66bfbf}
+\definecolor{hsblue}{HTML}{00b1db}
+\definecolor{hsgrey}{HTML}{afafaf}
+
+
+%%% CONSTANTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\smallvert}
+\setlength{\smallvert}{0.0131556\paperheight}
+
+%%% PACKAGE SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Code listing
+\lstset{
+  language=C,
+  basicstyle=\ttfamily,
+  keywordstyle=\bfseries\color{hsblue},
+  identifierstyle=\color{black},
+  rulecolor=\color{gray1},
+  frame=single,
+  frameround=tttt,
+  %framesep=1.382em,
+  backgroundcolor=\color{gray0}
+}
+
+%%% COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% differential d
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+% horizontal line
+\newcommand{\holine}[1]{
+  	\begin{center}
+	  	\noindent{\color{hsgrey}\hdashrule[0ex]{#1}{1pt}{3mm}}\\%[0.0131556\paperheight]
+  	\end{center}
+}
+
+% mini section
+\newcommand{\minisec}[1]{ \noindent\underline{\textit {#1} } \\}
+
+% quick function plot
+\newcommand{\plotfun}[3]{
+  \vspace{0.021286\paperheight}
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}[
+        axis x line=center,
+        axis y line=center,
+        ]
+        \addplot[draw=red1][domain=#2:#3]{#1};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+}
+
+% box for notes
+\newcommand{\notebox}[1]{
+
+\tcbset{colback=white,colframe=red1!100!black,title=Note!,width=0.618\paperwidth,arc=0pt}
+
+ \begin{center}
+  \begin{tcolorbox}[]
+   #1 
+  \end{tcolorbox}
+ 
+ \end{center} 
+ 
+}
+
+% box for equation
+\newcommand{\eqbox}[2]{
+	
+	\tcbset{colback=white,colframe=hsblue!100!black,title=,width=#2,arc=0pt}
+	
+	\begin{center}
+		\begin{tcolorbox}[ams align*]
+				#1
+		\end{tcolorbox}
+		
+	\end{center} 
+	
+}
+
+\newcommand{\inlinecode}[1] {
+  \inlinebox{\lstinline[language=C, identifierstyle=\color{gray7}, basicstyle=\color{gray7}\ttfamily, keywordstyle=\color{gray7}]{#1}}
+}
+
+\newtcbox{\inlinebox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0pt,top=0.1em,bottom=0.1em,
+  right=0.382em,left=0.382em,arc=0.382em,boxsep=0.1em,before upper={\vphantom{dlg}},
+  colframe=white,colback=gray0}
+
+
+% END OF PREAMBLE
