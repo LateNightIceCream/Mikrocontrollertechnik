@@ -1,8 +1,8 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.3.1)  18 MAR 2020 16:21
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.3.1)  18 MAR 2020 17:23
  restricted system commands enabled.
  file:line:error style messages enabled.
-**lab1.tex
-(./lab1.tex
+**lab2.tex
+(./lab2.tex
 LaTeX2e <2019-10-01> patch level 1
 Lua module: luaotfload-main 2019-09-13 3.00 luaotfload entry point
 Lua module: luaotfload-init 2019-09-13 3.00 luaotfload submodule / initializatio
@@ -56,7 +56,7 @@ Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
 cript
 Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.072 seconds
+luaotfload | main : initialization completed in 0.075 seconds
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size12.clo
@@ -1279,8 +1279,8 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-)) (./lab1.aux)
-\openout1 = lab1.aux
+)) (./lab2.aux)
+\openout1 = lab2.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
@@ -1503,41 +1503,50 @@ Package luatex.def Info: ./titlepage/titlepage.pdf , page1 used on input line 10
 (luatex.def)             Requested size: 597.53416pt x 845.08371pt.
 [1
 
-<./titlepage/titlepage.pdf>] [1
+<./titlepage/titlepage.pdf>]
+Overfull \hbox (13.05562pt too wide) in paragraph at lines 15--15
+[]\TU/TeXGyreHeros(0)/b/n/17.28 Kon-fi-gu-ra-ti-on des MSP430 zur Port-Ein- und
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (21.39035pt too wide) in paragraph at lines 65--68
-\TU/TeXGyreHeros(0)/m/n/12 me zur Soft-ware-ent-wick-lung, wie z.B. ei-nen Prog
-rammcode-Editor, Syntax-
  []
 
-[2] [3] (./lab1.aux)
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Font Warning: Font shape `TU/Inconsolatazi4(0)/m/it' undefined
+(Font)              using `TU/Inconsolatazi4(0)/m/n' instead on input line 59.
+
+
+Overfull \hbox (30.55452pt too wide) in paragraph at lines 67--67
+[]\TU/TeXGyreHeros(0)/b/n/17.28 Auf-ga-ben der Mo-du-le des Rah-men-pro-gramms 
+
+ []
+
+[2] (./lab2.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 55664 strings out of 493864
+ 55628 strings out of 493864
  100000,1977958 words of node,token memory allocated
- 558 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 1 dir, 2 glue, 4 kern, 1 glyph, 14 attribute, 59 gl
-ue_spec, 9 attribute_list, 2 write nodes
-   avail lists: 1:2,2:2666,3:498,4:194,5:266,6:27,7:2129,8:2,9:516,10:6,11:204
- 58890 multiletter control sequences out of 65536+600000
- 67 fonts using 10253263 bytes
- 71i,18n,100p,847b,890s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/share/texmf-dist/fonts/opentype/public/inconsolata/Inconsolatazi4-Bold.otf
-></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-italic.otf><
-/usr/share/texmf-dist/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.o
-tf></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-regular.ot
-f></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-bold.otf></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on lab1.pdf (4 pages, 1526584 bytes).
+ 577 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 1 dir, 3 glue, 4 kern, 1 glyph, 18 attribute, 59 gl
+ue_spec, 11 attribute_list, 2 write nodes
+   avail lists: 1:2,2:584,3:76,4:98,5:175,6:23,7:1206,8:2,9:289,10:2,11:109
+ 58836 multiletter control sequences out of 65536+600000
+ 86 fonts using 11845135 bytes
+ 71i,18n,100p,847b,542s stack positions out of 5000i,500n,10000p,200000b,100000s
+</usr/share/texmf-dist/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.
+otf></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-italic.ot
+f></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-regular.otf
+></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-bold.otf></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
+Output written on lab2.pdf (3 pages, 1515784 bytes).
 
-PDF statistics: 99 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+PDF statistics: 85 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

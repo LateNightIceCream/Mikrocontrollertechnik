@@ -1,0 +1,64 @@
+\documentclass[a4paper, 12pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Konfiguration des MSP430 zur Port-Ein- und Ausgabe}
+Jeder Port besteht aus 8 physischen Pins (Px.0 bis Px.7) und hat entsprechend mehrere 8-bit Register, die zur
+Konfiguration dienen. Die für die Ein- und Ausgabefunktion relevanten Register
+sind:
+\begin{enumerate}
+\item[] \textbf{PxSEL}
+  \begin{enumerate}
+    \item[] \textit{Function Select Register}: Legt fest, welche Funktion verwendet wird.
+      \begin{enumerate}
+        \item[0:]  I/O-Funktion
+        \item[1:]  Peripherie-Funktion
+      \end{enumerate}
+  \end{enumerate}
+\item[] \textbf{PxDIR}
+  \begin{enumerate}
+  \item[] \textit{Direction Register}: Legt die Richtung, also Ein- oder Ausgabe fest.
+  \begin{enumerate}
+    \item[0:]  Input
+    \item[1:]  Output
+  \end{enumerate}
+  \end{enumerate}
+\item[] \textbf{PxOUT/PxIN}
+  \begin{enumerate}
+\item[]    \textit{Input/Output Register}: Bestimmen, abhängig vom Wert des PxDIR, den
+   eigentlichen Ein- bzw. Ausgabewert.
+ \end{enumerate}
+\item[] \textbf{PxREN}
+  \begin{enumerate}
+    \item[] \emph{Resistor ENable Register}: Legt fest, ob Pullup- oder Pulldown
+      Widerstände verwendet werden sollen (PxDIR auf Input).
+      \begin{enumerate}
+        \item[0:] Widerstand deaktiviert
+        \item[1:] Der Wert in \emph{PxOUT} entscheidet ob Pullup/down
+          \begin{enumerate}
+            \item[0:] Pulldown
+            \item[1:] Pullup
+          \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\section{Initialisierung eines LC-Displays}
+\section{LCD-Anschluss und Konfiguration des MSP430}
+\section{Zeichendarstellung}
+  
+ \end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:
