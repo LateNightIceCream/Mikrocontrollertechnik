@@ -53,8 +53,49 @@ sind:
   \end{enumerate}
 \end{enumerate}
 
-\section{Initialisierung eines LC-Displays}
 \section{LCD-Anschluss und Konfiguration des MSP430}
+Das LCD kann entweder im \textbf{8-bit}- oder im \textbf{4-bit}-Modus 
+betrieben werden. Im 8-bit-Modus werden die Anschlüsse D0 bis D7 des LCDs zur
+simultanen Datenübertragung eines Bytes verwendet. Der 4-bit Modus benötigt nur die Anschlüsse D4 bis
+D7, wobei zuerst das höherwertigere und dann das niederwertigere Nibble gesendet
+wird.
+
+Unabhängig vom Modus werden außerdem die 3 Steuerbits Register Select
+\textbf{RS}, Read/Write \textbf{R/W}
+sowie Enable \textbf{E} benötigt.
+
+\begin{enumerate}
+\item[] \textbf{RS}
+  \begin{enumerate}
+    \item[] Wählt das Register aus in das geschrieben bzw. aus welchem gelesen
+      werden soll.
+      \begin{enumerate}
+      \item[1:] Data Register (R+W)
+        \item[0:] Instruction Register, wenn geschrieben wird. Busy Flag und
+          Address Counter wenn
+          gelesen wird
+      \end{enumerate}
+  \end{enumerate}
+
+\item[] \textbf{R/W}
+  \begin{enumerate}
+    \item[] Bestimmt Schreibe- oder Lesevorgang
+      \begin{enumerate}
+       \item[1:] Read
+       \item[0:] Write
+      \end{enumerate}
+  \end{enumerate}
+
+\item[] \textbf{E}
+  \begin{enumerate}
+    \item[] Übernahme des LCD-Befehls/der Daten bei High-Low-Flanke des Enable bits 
+       \end{enumerate}
+\end{enumerate}
+
+Instruction Register: Enthält Befehle, welche über deren Addressen vom
+Mikrokontroller angesprochen werden können.
+
+\section{Initialisierung eines LC-Displays}
 \section{Zeichendarstellung}
   
  \end{document}

@@ -59,7 +59,16 @@ und zum anderen meist in einer Endlosschleife innerhalb der
   dem Zielsystem ausführbaren Datei zusammen.
 
   \subsection{Assembler}
-  Der Assembler bildet die Schnittstelle zwischen Assembler- und Maschinensprache.
+  Der Assembler bildet die Schnittstelle zwischen Assembler- und
+  Maschinensprache. Assemblersprache besteht aus symbolischen Abkürzungen,
+  welche jeweils stellvertretend für bestimmte Maschinenbefehle stehen.
+  Maschinen- und damit Assemblerbefehle sowie deren Syntax sind vom System/der Architektur abhängig und daher nicht
+  einheitlich (z.B. Unterschied RISC/CISC)
+
+\vspace{\parskip}
+\begin{lstlisting}[language=Assembler]
+ MOV R8, #0123 ;lade (MOVe) den Wert #0123 in R8
+\end{lstlisting}
 
   \section{Was ist eine Entwicklungsumgebung?}
   Eine Entwicklungsumgebung ist ein Programm, das mehrere Programme zur
