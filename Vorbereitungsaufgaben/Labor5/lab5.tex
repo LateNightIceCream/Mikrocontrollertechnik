@@ -1,0 +1,86 @@
+\documentclass[a4paper, 12pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tasterprellen}
+Das Prellen der Taster ist mechanischen Ursprungs. Ursache ist das elastische
+Zurückprallen gegen die Federung (Wikipedia), wodurch der Kontakt oft mehrmals
+geöffnet und geschlossen wird bevor der eigentlich stabile Tasterzustand
+entsteht, was dazu führen kann, dass fehlerhaft mehrfache Anschläge
+registriert werden.
+
+Hardwaremäßig kann man ein Tiefpassfilter einsetzen um die kurzen,
+ungewollten Impulse zu filtern. Nachfolgend wird dann ein Schmitt-Trigger zur
+Erzeugung der korrekten Signalwerte (High/Low) geschaltet.
+
+In der Software kann man eine bestimmte Entprellzeit abwarten, bevor der
+Tasterzustand gelesen wird. Dort wird z.B. der Interrupt durch das erste Prellen
+ausgelöst, der Zustand registriert und mit dem Zustand nach der Entprellzeit verglichen.
+
+Tasterprellzeiten liegen im Bereich 100 $\, \si{\micro\second}$ bis 10 $\, \si{\milli\second}$.
+
+\section{Codierung des Tastendrucks}
+Mithilfe einer integrierten Encoderschaltung, wie dem 74HC148, kann ein Tastendruck
+aus acht Tastern in einen 3-bit Code gewandelt werden. Jeder Taster erhält also
+einen eigenen Code, z.B. 101, über den er von den anderen unterscheidbar ist.
+Werden mehrere Taster gleichzeitig gedrückt, liegt u.U. eine Priosierungslogik
+vor, die den Taster/Code mit der höheren Priorität einstellt und den/die mit der
+niedrigeren damit unterdrückt.
+
+Der Group Select (GS) Pin am 74HC148 wird bei Eingangsänderung gesetzt und kann
+zur Interrupterzeugung verwendet werden.
+
+\section{Interruptkonfiguration}
+
+\subsubsection*{Global Interrupt Enable (GIE) im SR muss aktiviert sein}
+
+\begin{lstlisting}
+__bis_SR_register(GIE);
+\end{lstlisting}
+
+\subsubsection*{ Port Interrupt Enable (PxIE) muss aktiviert sein}
+\begin{lstlisting}
+P1IE |= BIT4;
+\end{lstlisting}
+
+\subsubsection*{Interrupt Edge Select (IES) wählen}
+\begin{lstlisting}
+P1IES |=  BIT4; // Interrupt bei High-Low-Flanke
+P1IES &=~ BIT4; // Interrupt bei Low-High-Flanke
+\end{lstlisting}
+
+\subsubsection*{Interrupt Service Routine, Vektor zuweisen}
+\begin{lstlisting}
+#pragma vector=PORT1_VECTOR
+__interrupt void port1_isr_name() {
+    // ISR
+}
+\end{lstlisting}
+
+\section{Tastendruck einlesen}
+\begin{itemize}
+\item Portinitialisierung, Interruptkonfiguration
+\item ISR: Ausgelöst durch GS
+\item 3-bit Wert aufnehmen
+\item Entprellzeit abwarten
+\item Entsprechend Zustand setzen, ob Taster gedrückt
+\item Weiterverarbeitung außerhalb der ISR abhängig vom Tasterzustand
+\end{itemize}
+
+
+
+  
+ \end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:
