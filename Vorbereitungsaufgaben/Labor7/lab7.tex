@@ -24,9 +24,16 @@
   \section{Output Mode und Zählmodus}
 
   \section{Minimale und maximale Frequenz}
-  Die minimale Freqenz die erzeugt werden kann, wenn \inlinecode{TACCR0} auf den
-  Maximalwert (\inlinecode{#FFFFFF}) gesetzt, der Taktteiler auf dem Maximalwert
-  (8) und der Timer im up-down-Mode ist.
+  Die minimale Frequenz die erzeugt werden kann, ist
+  \[f_{min} = \frac{f_{CLK}/d}{2\cdot 65536}\]
+  wenn \inlinecode{TACCR0} auf den
+  Maximalwert (\inlinecode{0xFFFFFF}) gesetzt, der Taktteiler auf dem Maximalwert
+  ($d=8$) und der Timer im up-down-Mode ist.\\
+
+  Die maximale Frequenz, die erzeugt werden kann, ist die halbe
+  Timertaktfrequenz im up-Mode
+  \[f_{max} = \frac{f_{CLK}}{2}\]
+  
 
 
  \end{document}
