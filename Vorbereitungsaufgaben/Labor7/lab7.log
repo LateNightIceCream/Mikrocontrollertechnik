@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.4.4)  20 APR 2020 09:18
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.4.4)  21 APR 2020 14:30
  restricted system commands enabled.
  file:line:error style messages enabled.
 **lab7.tex
@@ -56,7 +56,7 @@ Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
 cript
 Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.073 seconds
+luaotfload | main : initialization completed in 0.076 seconds
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size12.clo
@@ -1512,21 +1512,23 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 )
 
 Here is how much of LuaTeX's memory you used:
- 55389 strings out of 493864
+ 55644 strings out of 493864
  100000,1977958 words of node,token memory allocated
  558 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 1 dir, 2 glue, 4 kern, 1 glyph, 14 attribute, 59 gl
 ue_spec, 9 attribute_list, 2 write nodes
-   avail lists: 1:2,2:136,3:13,4:6,5:35,6:4,7:41,8:2,9:86,11:1
- 58625 multiletter control sequences out of 65536+600000
- 63 fonts using 9678415 bytes
- 71i,18n,100p,847b,483s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-regular.otf><
-/usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-bold.otf>
-Output written on lab7.pdf (2 pages, 1496207 bytes).
+   avail lists: 1:2,2:1508,3:327,4:45,5:67,6:15,7:805,8:2,9:165,10:3,11:55
+ 58877 multiletter control sequences out of 65536+600000
+ 64 fonts using 9853215 bytes
+ 71i,18n,100p,847b,890s stack positions out of 5000i,500n,10000p,200000b,100000s
+</usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-italic.otf></
+usr/share/texmf-dist/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.ot
+f></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-regular.otf
+></usr/share/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-bold.otf>
+Output written on lab7.pdf (2 pages, 1505829 bytes).
 
-PDF statistics: 64 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+PDF statistics: 78 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

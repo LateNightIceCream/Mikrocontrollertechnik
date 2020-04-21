@@ -12,12 +12,21 @@
   \setcounter{page}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section{Timer A Initialisierung}
+  Timer A wird über das \inlinecode{TA}
 
+  Entsprechend des Timermodus muss dann möglicherweise noch das \inlinecode{TACCR0} Register
+  gesetzt werden.
+  
   \section{Timer A Start}
+  Der Timer wird über die \emph{Mode Control} (MC) Bits in einen Modus, d.h.
+  up-, up-down-, bzw. Continuous-Mode versetzt und dadurch automatisch gestartet.  
 
   \section{Output Mode und Zählmodus}
 
   \section{Minimale und maximale Frequenz}
+  Die minimale Freqenz die erzeugt werden kann, wenn \inlinecode{TACCR0} auf den
+  Maximalwert (\inlinecode{#FFFFFF}) gesetzt, der Taktteiler auf dem Maximalwert
+  (8) und der Timer im up-down-Mode ist.
 
 
  \end{document}
