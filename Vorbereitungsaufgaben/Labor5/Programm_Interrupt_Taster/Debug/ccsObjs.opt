@@ -1,1 +1,0 @@
-"./main.obj" "./functions/clock/driverlib_fll.obj" "./functions/delay/delays.obj" "./functions/timer/timer_A.obj" "../lnk_msp430f5529.cmd" -llibmath.a -llibc.a 
