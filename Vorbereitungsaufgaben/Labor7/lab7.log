@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.4.4)  21 APR 2020 15:07
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.4.4)  21 APR 2020 15:09
  restricted system commands enabled.
  file:line:error style messages enabled.
 **lab7.tex
@@ -56,7 +56,7 @@ Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
 cript
 Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.078 seconds
+luaotfload | main : initialization completed in 0.081 seconds
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size12.clo
@@ -1504,7 +1504,7 @@ Package luatex.def Info: ./titlepage/titlepage.pdf , page1 used on input line 10
 [1
 
 <./titlepage/titlepage.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 28--32
+Underfull \hbox (badness 10000) in paragraph at lines 29--33
 
  []
 
@@ -1522,7 +1522,7 @@ Here is how much of LuaTeX's memory you used:
  570 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 1 dir, 2 glue, 4 kern, 1 glyph, 18 attribute, 59 gl
 ue_spec, 11 attribute_list, 2 write nodes
-   avail lists: 1:2,2:1538,3:345,4:45,5:92,6:17,7:988,8:20,9:191,10:1,11:70
+   avail lists: 1:2,2:1538,3:346,4:45,5:100,6:17,7:1063,8:20,9:192,10:1,11:80
  58877 multiletter control sequences out of 65536+600000
  64 fonts using 9853215 bytes
  71i,18n,100p,847b,890s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -1534,7 +1534,7 @@ sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb>
-Output written on lab7.pdf (2 pages, 1539173 bytes).
+Output written on lab7.pdf (2 pages, 1539350 bytes).
 
 PDF statistics: 94 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream

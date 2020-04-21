@@ -12,7 +12,8 @@
   \setcounter{page}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section{Timer A Initialisierung}
-  Timer A wird über das \inlinecode{TA}
+  Timer A wird hauptsächlich über das \inlinecode{TACTL} Register initialisert.
+  Dort kann u.a. die , es können Timermodus (MC), Frequenzteiler (ID) gesetzt werden
 
   Entsprechend des Timermodus muss dann möglicherweise noch das \inlinecode{TACCR0} Register
   gesetzt werden.
