@@ -1,4 +1,5 @@
-\documentclass[a4paper, 12pt]{article}
+\do\documentclass[a4paper, 12pt]{article}
+cumentclass[a4paper, 12pt]{article}
 
 \input{../preamble}
 
@@ -13,16 +14,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section{Timer A Initialisierung}
   Timer A wird hauptsächlich über das \inlinecode{TACTL} Register initialisert.
-  Dort kann u.a. die , es können Timermodus (MC), Frequenzteiler (ID) gesetzt werden
-
+  Dort kann u.a. die Taktquelle \inlinecode{TASSEL} ausgewählt werden und es können Timermodus
+  \inlinecode{MC}, Frequenzteiler \inlinecode{ID} und Interrupt Enable \inlinecode{IE} gesetzt werden.
   Entsprechend des Timermodus muss dann möglicherweise noch das \inlinecode{TACCR0} Register
   gesetzt werden.
   
   \section{Timer A Start}
-  Der Timer wird über die \emph{Mode Control} (MC) Bits in einen Modus, d.h.
-  up-, up-down-, bzw. Continuous-Mode versetzt und dadurch automatisch gestartet.  
+  Der Timer wird über die \emph{Mode Control} (\inlinecode{MC}) Bits in einen Modus, d.h.
+  up-, up-down-, bzw. continuous-Mode versetzt und dadurch gestartet. Durch
+  löschen dieser Bits wird der Timer gestoppt. 
 
   \section{Output Mode und Zählmodus}
+  Zur Frequenzerzeugung mit dem Timer sollte dieser im \emph{up-Mode} Zählmodus
+  und \emph{Reset/Set} Output Mode sein. Der Wert in \inlinecode{TACCR0} ist die
+  Anzahl der Zählungen des Timers bis zum Reset auf 0 und bestimmt damit die Periodendauer $T$
+  \[ \inlinecode{TACCR0} = T \cdot f_{CLK} - 1\]
+
+  Analog wird der Wert der Impulsbreite $\tau$ durch den Wert in
+  \inlinecode{TACCRn} bestimmt 
+  \[\inlinecode{TACCRn} = \tau \cdot f_{CLK} - 1\]
+
+  Dabei ist es wichtig, auf die richtigen Einheiten zu achten. Unter Umständen
+  werden noch Konvertierungsfaktoren benötigt.
 
   \section{Minimale und maximale Frequenz}
   Die minimale Frequenz die erzeugt werden kann, ist
