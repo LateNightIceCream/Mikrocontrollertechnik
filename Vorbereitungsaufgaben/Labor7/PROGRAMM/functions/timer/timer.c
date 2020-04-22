@@ -25,7 +25,7 @@ void timer_init(
     //// ADDRESSES
     timer->timer_base_address = (uint16_t* )(_timer_base_address);
     timer->CTL                = (uint16_t* )(_timer_base_address);
-    timer->CCTL0              = (uint16_t* )(_timer_base_address + 0x02);
+    timer->CCTL0              = (uint16_t* )(_timer_base_address + 0x02); // add offsets (see userguide)
 
     timer->CCR0               = (uint16_t* )(_timer_base_address + 0x12);
 
@@ -63,8 +63,8 @@ void pwm_init( timer* timer, uint16_t CC_register_select) {
     timer->pwm.CCTLn     = ( timer->CTL + 1 + CC_register_select);
     timer->pwm.CCRn      = ( timer->timer_base_address + 9 + CC_register_select);
 
-    timer->pwm.period    = 12; // not really needed
-    timer->pwm.pulsew    = 100; // not really needed
+    timer->pwm.period    = 0; // not really needed
+    timer->pwm.pulsew    = 0; // not really needed
 
     /// disable CCIFG Interrupts
     *(timer->CCTL0)     &= ~(CCIE);
@@ -78,7 +78,12 @@ void pwm_init( timer* timer, uint16_t CC_register_select) {
 
 ///////////////////////////////////////////////////////
 
+// timer:      pointer to timer struct
+// period:     pwm period
+// pulsewidth: pwm pulsewidth
+// us_ms_s:    time unit (0: micro second, 1: milli second, 2: second)
 // max possible time is 2^16/timer_clock
+
 void pwm_set_period_pulsewidth(timer* timer, uint16_t period, uint16_t pulsewidth, uint8_t us_ms_s) {
 
     if(pulsewidth <= period) {
@@ -133,7 +138,7 @@ void pwm_start(timer* timer) {
 
     // set OUTMOD to reset/set
     //*(timer->CCTLn) &= ~(OUTMOD0 | OUTMOD1 | OUTMOD2);
-    *(timer->pwm.CCTLn) |=  (OUTMOD0 | OUTMOD1 | OUTMOD2); // reset/set mode
+    *(timer->pwm.CCTLn) |=  (OUTMOD0 | OUTMOD1 | OUTMOD2); // reset/set mode (OUTMOD_7)
 
 }
 

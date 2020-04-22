@@ -25,6 +25,12 @@ uint16_t first_check    = 0; // Entprellung: erster lesevorgang
 uint16_t second_check   = 0; // Entprellung: zweiter lesevorgang
 uint8_t  key_pressed    = 0; // Bool
 
+
+///////////////////////////////////////////////////////
+
+timer* TimerA0;
+timer* TimerA1;
+
 void key_handler(void);
 
 ///////////////////////////////////////////////////////
@@ -41,36 +47,44 @@ int main(void)
 	UCSCTL5 |=  DIVA_1;        // Divide ACLK by 1
 	UCSCTL4 |= (SELA__DCOCLK); // set ACLK source to DCO_DIV
 
+
     /// GLOBAL INTERRUPT ENABLE
     ///////////////////////////////////////////////////////
 
     __bis_SR_register( GIE );
 
+
 	/// TIMER SETTINGS
 	///////////////////////////////////////////////////////
 
-	TA0_init(TA0_CLK_SOURCE, TA0_CLK_DIVIDE_ID);
-	TA1_init(TA1_CLK_SOURCE, TA1_CLK_DIVIDE_ID); // for delays
+    TimerA0 = malloc(sizeof(timer));
+    TimerA1 = malloc(sizeof(timer));
+
+    timer_init(
+            TimerA0,
+            TIMER_A0_BASE,
+            TASSEL_1,       // ACLK
+            ACLK_SPEED_IN_KHZ,
+            ID__1,
+            1
+    );
+
+    timer_init( // for delays
+            TimerA1,
+            TIMER_A1_BASE,
+            TASSEL_1,
+            ACLK_SPEED_IN_KHZ,
+            ID__1,
+            1
+    );
+
 
     /// PWM SETTINGS
     ///////////////////////////////////////////////////////
 
-	//TA0_pwm_init(ACLK_SPEED_IN_KHZ, TA0_CLK_DIVIDE_ID_VAL);
-
-	timer* TimerA0 = malloc(sizeof(timer));
-
-	timer_init(
-	        TimerA0,
-	        TIMER_A0_BASE,
-	        TASSEL_1,       // ACLK
-	        ACLK_SPEED_IN_KHZ,
-	        ID__1,
-	        1
-	);
-
 	pwm_init(TimerA0, 3);
 
-	pwm_set_period_pulsewidth(TimerA0, 100, 50, 0);
+	pwm_set_period_pulsewidth(TimerA0, 0, 0, 0);
 
 	pwm_start(TimerA0);
 
@@ -92,7 +106,7 @@ int main(void)
 	GS_DIR  &= ~GS;             // Input direction (not needed?)
 
 
-    /// LED settings
+    /*/// LED settings
     LED_DIR = 0xFF;
     LED_OUT = 0x00;
     LED_OUT &= ~((1<<LED_0) | (1<<LED_1) | (1<<LED_2) );
@@ -100,13 +114,13 @@ int main(void)
 
     /// temporary for testing
     P7DIR |= BIT4;
-    P7OUT &= ~BIT4;
-
+    P7OUT &= ~BIT4;*/
 
     /// LCD
+    ///////////////////////////////////////////////////////
+
     lcd_init();
 
-    //lcd_print("hello world", 0,0);
 
     /// MAIN LOOP
     ///////////////////////////////////////////////////////
@@ -172,17 +186,18 @@ __interrupt void keypress_interrupt(void) { // react on group select of encoder 
 
 }
 
+
+///////////////////////////////////////////////////////
+
 void key_handler(void) {
 
     if(key_pressed) {
-
-
 
         switch(second_check) {
 
             default:
             case 0: // Taste 0
-                lcd_print("1 kHz" ,0,0);
+                lcd_print("Taste 1" ,0,0);
                 break;
             case 1: // Taste 1
                 lcd_print("..." ,0,0);
@@ -197,13 +212,21 @@ void key_handler(void) {
                 lcd_print("Taste 4" ,0,0);
                 break;
             case 5: // Taste 5
-                lcd_print("Taste 5" ,0,0);
+
+                lcd_print("1 kHz" ,0,0);
+                pwm_set_period_pulsewidth(TimerA0, 1000, 500, 0); // 1kHz
+
                 break;
             case 6: // Taste 5
-                lcd_print("Taste 6" ,0,0);
+
+                lcd_print("3 kHz" ,0,0);
+                pwm_set_period_pulsewidth(TimerA0, 333, 166, 0); // 3kHz
+
                 break;
             case 7: // Taste 7
-                lcd_print("Taste 7" ,0,0);
+
+                lcd_print("5 kHz" ,0,0);
+                pwm_set_period_pulsewidth(TimerA0, 200, 100, 0); // 5kHz
 
                 break;
         }
