@@ -26,6 +26,7 @@
     "fontspec"
     "tgheros"
     "tgcursor"
+    "sansmath"
     "geometry")
    (TeX-add-symbols
     '("inlinecode" 1)

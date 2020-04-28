@@ -1,0 +1,48 @@
+\documentclass[a4paper, 12pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Prinzip der Frequenzmessung}
+
+Durch Festlegen einer \emph{Torzeit} (Gate Time) $T_{\textrm{Gate}}$ und Zählen der
+Flanken des Eingangssignals ($Z$) während dieser Zeit, kann die Frequenz des Signals
+berechnet werden.
+\[f = \frac{Z}{T_{\textrm{Gate}}}\]
+
+\section{Umsetzung}
+\section{Erzeugung der Torzeit}
+Ist der Timer im continuous-Mode, lässt sich bei einer Taktfrequenz von 16 MHz
+und dem maximalen Teilerwert von 8 eine maximale Periodendauer von
+\[T_{max} = \frac{2^{16}-1}{16/8 \,\si{\mega\hertz}} = 32.7675 \, \si{\milli\second}\]
+
+einstellen. Um eine Torzeit von $1 \, \si{\second}$ zu erreichen, muss man nun
+die Anzahl der Timerüberläufe (Interrupt TAIFG) zählen, bis diese den nötigen Wert $k$ erreicht haben.
+Dieser ist für $T_{max}$
+\[k = \frac{1 \, \si{\second}}{T_{max}} = 30.518\]
+
+Da $k$ in diesem Fall kein ganzzahliger Wert ist, man aber nur ganze Überläufe
+zählen kann, entstehen Ungenauigkeiten. Um das zu verhindern, kann man den Timer
+auch in den up-Mode setzen und zu einem Wert zählen lassen, der bei der
+gewünschten Zeit eine ganzzahlige Anzahl an Überläufen/Interrupts erzeugt,
+beispielsweise 40 Überläufe, woraus sich eine Periodendauer von
+\[T_{up} = \frac{1 \, \si{\second}}{40} = 25 \, \si{\milli\second}\]
+ergibt.
+
+Um diese Zeit zu erzeugen, braucht der Timer im up-Mode den Comparewert
+\[\textrm{CCR0} = 25 \, \si{\milli\second} \cdot 2 \, \si{\mega\hertz} = 50000\]
+
+
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:
