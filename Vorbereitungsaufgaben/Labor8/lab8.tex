@@ -19,6 +19,11 @@ berechnet werden.
 \[f = \frac{Z}{T_{\textrm{Gate}}}\]
 
 \section{Umsetzung}
+Das zu messende Eingangssignal liegt an P2.2 an, welcher zur Capture-Einheit 0
+des Timers A gehört. Dort muss dann im TACCTL-Register über das CCIS-Flag der
+Eingang CCI0B (01b) ausgewählt werden. Die Torzeit wird dann mit dem Timer B
+generiert. Die Berechnung wird im Interrupt (TAIFG) des Timer B durchgeführt.
+
 \section{Erzeugung der Torzeit}
 Ist der Timer im continuous-Mode, lässt sich bei einer Taktfrequenz von 16 MHz
 und dem maximalen Teilerwert von 8 eine maximale Periodendauer von
@@ -39,6 +44,21 @@ ergibt.
 
 Um diese Zeit zu erzeugen, braucht der Timer im up-Mode den Comparewert
 \[\textrm{CCR0} = 25 \, \si{\milli\second} \cdot 2 \, \si{\mega\hertz} = 50000\]
+
+\section{Genauigkeit}
+Die sich ergebende Messabweichung ist
+\[F = \pm \frac{1}{2} \cdot \frac{1}{T_{\textrm{Gate}}}\]
+
+\section{Portinitialisierung}
+P2.2 muss für die Input-Richtung konfiguriert werden (0).
+\begin{lstlisting}
+P2DIR &= ~(1<<2);
+\end{lstlisting}
+
+\noindent Außerdem muss die Zweitfunktion ausgewählt werden (1).
+\begin{lstlisting}
+P2SEL |= (1<<2);
+\end{lstlisting}
 
 
 \end{document}
