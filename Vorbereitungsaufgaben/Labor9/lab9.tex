@@ -1,0 +1,82 @@
+\documentclass[a4paper, 12pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \section{Register}
+  Für die Zeitmessung wird die Capture Compare Unit 0 des Timer A mit dem zu
+  messenden Eingangssignal an Pin \inlinecode{P2.2} verwendet. Zur Auswahl dieses Eingangs
+  wird im \inlinecode{TACCTL0} \inlinecode{CCIS_0} gesetzt.
+
+  Zum Zählen der Überläufe des Timers werden die Timerinterrupts aktiviert
+  (\inlinecode{TAIE}). Zum Erfassen eines Capture-Events werden die Interrupts
+  der CC-Einheit aktiviert (\inlinecode{TACCTL0: CCIE}).
+  Um die Anzahl der Überläufe gering zu halten, wird der Taktvorteiler im
+  \inlinecode{TACTL} Register auf 8 gesetzt (\inlinecode{TASSEL_1},
+  \inlinecode{ID_3}). Jedoch muss beachtet werden, dass die Signalfrequenz
+  nicht höher ist als die Zählfrequenz des Timers, da die Capturewerte sonst
+  gleich sind (siehe Gleichung (1)).
+
+  Zur Einstellung des Capture Modes muss das
+  \inlinecode{CAP}-Flag im \inlinecode{TACCTL0} Register auf 1 und der Capture
+  Mode \inlinecode{CM} des Captures je nach Messung gesetzt werden.
+ 
+  \section{Ablauf der Messungen}
+
+  \subsection{Periodenmessung}
+  Bei der Periodenmessung wird der Capture Mode auf den Capture bei steigender
+  Flanke gesetzt. Damit wird bei steigender Flanke des Eingangssignals die ISR
+  des CCIFGs durchlaufen, in welcher dann beim ersten Durchlauf der erste
+  Capture-Wert und beim zweiten der zweite gespeichert wird.
+
+  \subsection{Impulsmessung}
+  Bei der Impulsmessung wird der Capture zuerst bei steigender Flanke und dann
+  bei fallender Flanke ausgelöst und die jeweiligen Capurewerte in der ISR aufgenommen.
+
+  \subsection{Pausendauer}
+  Die Pausendauermessung erfolgt analog der Impulsmessung nur dass zu Anfang der
+  Capture Mode auf falling edge und in der ISR dann auf rising edge umgeschaltet wird.
+
+  \section{Zeitberechnung}
+  Die Gleichung für die Berechnung der Zeit ist für alle Messungen gleich.
+
+  \begin{equation}
+  T = \frac{\textrm{Capturewert2} - \textrm{Capturewert1}}{f_{CLK}}
+\end{equation}
+
+  Jedoch müssen die Timerüberläufe berücksichtigt werden, da die Capturewerte
+  aus zwei verschiedenen Timerzählperioden stammen können und ohne
+  Berücksichtigung der Überläufe nutzlos wären.
+
+  \begin{equation}
+    T = \frac{(N_{\textrm{Überläufe}} \cdot 2^{16}-1) + Z_2 - Z_1}{f_{CLK}}
+  \end{equation}
+
+  \section{Ausgabe einer Dezimalzahl}
+  Ein 16 bit Integer kann mit der Laborfunktion \inlinecode{dis_zahl65535()} von
+  Hr. Wenzel ausgegeben werden.
+
+  Dabei bestimmt \inlinecode{csr} ob die Zahl an
+  der momentanen LCD-Cursorposition (\inlinecode{csr=0}) oder an der durch die folgenden zwei
+  Argumente angegebene Zeile und Spalte (\inlinecode{csr=1}) geschrieben werden soll. 
+  \begin{lstlisting}
+  int dis_zahl65535(unsigned char csr, 
+                    unsigned char z, 
+                    unsigned char s, 
+                    unsigned int zahl); 
+  \end{lstlisting}
+
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:
