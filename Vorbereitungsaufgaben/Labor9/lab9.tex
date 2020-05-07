@@ -15,7 +15,8 @@
   \section{Register}
   Für die Zeitmessung wird die Capture Compare Unit 0 des Timer A mit dem zu
   messenden Eingangssignal an Pin \inlinecode{P2.2} verwendet. Zur Auswahl dieses Eingangs
-  wird im \inlinecode{TACCTL0} \inlinecode{CCIS_0} gesetzt.
+  wird im \inlinecode{TACCTL0} \inlinecode{CCIS_1} gesetzt. Der Timer A wird
+  außerdem in den continuous mode (\inlinecode{TACTL: MC_2}) gesetzt.
 
   Zum Zählen der Überläufe des Timers werden die Timerinterrupts aktiviert
   (\inlinecode{TAIE}). Zum Erfassen eines Capture-Events werden die Interrupts
