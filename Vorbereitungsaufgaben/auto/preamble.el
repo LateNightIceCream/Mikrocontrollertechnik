@@ -29,6 +29,7 @@
     "sansmath"
     "geometry")
    (TeX-add-symbols
+    '("commentGray" 1)
     '("inlinecode" 1)
     '("eqbox" 2)
     '("notebox" 1)

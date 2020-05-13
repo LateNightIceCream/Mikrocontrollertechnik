@@ -1,0 +1,74 @@
+\documentclass[a4paper, 12pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+  \section{Register für die Timergesteuerte AD-Wandlung}
+
+  \begin{itemize}
+
+  \item \inlinecode{P6DIR} \commentGray{(Input Direction)}
+  \item \inlinecode{P6SEL} \commentGray{(Alternativfunktion: ADC)}
+
+  \item \inlinecode{ADC12CTL0}
+    \begin{itemize}
+      \item \inlinecode{SHT0x, SHT1x}
+      \item \inlinecode{REF2_5V}
+      \item \inlinecode{REFON}
+      \item \inlinecode{ADC12ON}
+      \item \inlinecode{ENC} \commentGray{Konfiguration}
+      \item \inlinecode{ADC12SC}
+    \end{itemize}
+
+  \item \inlinecode{ADC12CTL1}
+    \begin{itemize}
+      \item \inlinecode{SHP}
+      \item \inlinecode{SHSx}
+      \item \inlinecode{ADC12SSELx}
+      \item \inlinecode{CONSEQx} \commentGray{Modusauswahl}
+      \item \inlinecode{CSTARTADDx} 
+    \end{itemize}
+
+  \item \inlinecode{ADC12MCTLx} \commentGray{(conversion memory control register(s))}
+    \begin{itemize}
+    \item \inlinecode{SREF0, SREF1, SREF2}
+    \item \inlinecode{INCHx} \commentGray{(P6.3)}
+    \item \inlinecode{EOS}
+    \end{itemize}
+
+  \item \inlinecode{ADC12IE}
+  \item \inlinecode{TACTL} \commentGray{Abtastperiodeneinstellung}
+
+  \end{itemize}
+
+  \section{Umrechnung des AD-Wertes in eine Spannung}
+  Die Ermittlung des Spannungswertes eines gewandelten digitalen Wertes gelingt durch
+  \[ U = AD_{d} \cdot \mathrm{LSB} = AD_{d} \cdot \frac{\mathrm{FSR}}{2^{12}}\]
+
+  Bei z.B. einer FSR von $5 \, \si{\volt}$ und einem gewandelten Wert von
+  $AD_{d} = 4095_d = FFF_h $ erhält man eine Spannung von $U=4.9988 \, \si{\volt}$
+
+  \section{Einlesbarer Spannungsbereich}
+  Bei Wandlung mit einem SAR-Wandler, an dessen DAC eine Referenzspannung von
+  $U_{\mathrm{ref}} = 2.5 \, \si{\volt}$ liegt, ist der gültig einlesbare
+  Spannungsbereich auf diesen Referenzwert begrenzt, da der DAC eine maximale
+  Spannung von $U_{\mathrm{ref}}$ an den Komparator rückkoppeln kann und der
+  konvertierte Wert bei einer Eingangsspannung größer $U_\mathrm{ref}$ dann nur
+  zu einem maximalen Wert \inlinecode{111111111111} gewandelt wird, welcher
+  $U_{\mathrm{ref}}$ repräsentiert.
+
+  \end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:

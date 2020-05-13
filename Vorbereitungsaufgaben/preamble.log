@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.4.4)  21 APR 2020 16:22
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.5.2)  13 MAY 2020 21:13
  restricted system commands enabled.
  file:line:error style messages enabled.
 **preamble.tex
@@ -56,7 +56,7 @@ Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
 cript
 Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.077 seconds
+luaotfload | main : initialization completed in 0.074 seconds
 
 ./preamble.tex:9: LaTeX Error: \usepackage before \documentclass.
 
@@ -300,19 +300,40 @@ l.29 \usepackage{
 between \documentclass and \begin{document}.
 
 
-./preamble.tex:34: LaTeX Error: \usepackage before \documentclass.
+./preamble.tex:31: LaTeX Error: \usepackage before \documentclass.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.34 \usepackage{
+l.31 \usepackage{
+               sansmath}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+./preamble.tex:32: Undefined control sequence.
+l.32 \sansmath
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./preamble.tex:37: LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 \usepackage{
                geometry}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
-./preamble.tex:35: Undefined control sequence.
-l.35 \geometry
+./preamble.tex:38: Undefined control sequence.
+l.38 \geometry
             {
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -321,55 +342,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./preamble.tex:36: LaTeX Error: Missing \begin{document}.
+./preamble.tex:39: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.36  a
+l.39  a
      4paper,
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./preamble.tex:37: Illegal unit of measure (pt inserted).
+./preamble.tex:40: Illegal unit of measure (pt inserted).
 <to be read again> 
 .
-l.37  total={0.6180339887498948\paperwidth,0.
+l.40  total={0.7639320225002104\paperwidth,0.
                                            6180339887498948\paperheight},
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./preamble.tex:37: Missing number, treated as zero.
-<to be read again> 
-}
-l.37 ...8\paperwidth,0.6180339887498948\paperheight}
-                                                  ,
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./preamble.tex:37: Illegal unit of measure (pt inserted).
-<to be read again> 
-}
-l.37 ...8\paperwidth,0.6180339887498948\paperheight}
-                                                  ,
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./preamble.tex:39: Illegal unit of measure (pt inserted).
-<to be read again> 
-b
-l.39  bo
-      ttom = 0.1458980337503154\paperheight
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -380,8 +368,8 @@ two letters. (See Chapter 27 of The TeXbook.)
 ./preamble.tex:40: Missing number, treated as zero.
 <to be read again> 
 }
-l.40  }
-     
+l.40 ...4\paperwidth,0.6180339887498948\paperheight}
+                                                  ,
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
@@ -389,7 +377,40 @@ look up `weird error' in the index to The TeXbook.)
 ./preamble.tex:40: Illegal unit of measure (pt inserted).
 <to be read again> 
 }
-l.40  }
+l.40 ...4\paperwidth,0.6180339887498948\paperheight}
+                                                  ,
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./preamble.tex:42: Illegal unit of measure (pt inserted).
+<to be read again> 
+b
+l.42  bo
+      ttom = 0.1458980337503154\paperheight
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./preamble.tex:43: Missing number, treated as zero.
+<to be read again> 
+}
+l.43  }
+     
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./preamble.tex:43: Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.43  }
      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -399,12 +420,12 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 36--43
+Overfull \hbox (20.0pt too wide) in paragraph at lines 39--46
 []a4paper,
  []
 
-./preamble.tex:49: Undefined control sequence.
-l.49 \setmainfont
+./preamble.tex:52: Undefined control sequence.
+l.52 \setmainfont
                {TeX Gyre Heros}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -413,19 +434,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./preamble.tex:49: LaTeX Error: Missing \begin{document}.
+./preamble.tex:52: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.49 \setmainfont{T
+l.52 \setmainfont{T
                  eX Gyre Heros}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./preamble.tex:50: Undefined control sequence.
-l.50 \setmonofont
+./preamble.tex:53: Undefined control sequence.
+l.53 \setmonofont
                {Inconsolatazi4}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -434,7 +455,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 49--51
+Overfull \hbox (20.0pt too wide) in paragraph at lines 52--54
 []TeX
  []
 
@@ -445,10 +466,10 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: tex)
 
 Enter file name: 
-./preamble.tex:55: Emergency stop.
+./preamble.tex:58: Emergency stop.
 <read *> 
    
-l.55 \input{../colors}
+l.58 \input{../colors}
                     
 *** (cannot \read from terminal in nonstop modes)
 
@@ -463,4 +484,4 @@ ute, 35 glue_spec, 12 attribute_list nodes
  4795 multiletter control sequences out of 65536+600000
  14 fonts using 591799 bytes
  7i,0n,6p,88b,18s stack positions out of 5000i,500n,10000p,200000b,100000s
-./preamble.tex:55:  ==> Fatal error occurred, no output PDF file produced!
+./preamble.tex:58:  ==> Fatal error occurred, no output PDF file produced!
