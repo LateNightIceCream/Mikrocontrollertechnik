@@ -23,6 +23,7 @@
     "booktabs"
     "circuitikz"
     "listings"
+    "titlesec"
     "fontspec"
     "tgheros"
     "tgcursor"

@@ -1,0 +1,62 @@
+\documentclass[a4paper, 11pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \section{SPI-Datenübertragung}
+  Die Datenübetragung mittels SPI erfolgt synchron mithilfe eines vom Master
+  gesteuerten Taktes (SCLK) über die Datenleitungen MOSI (Master Out | Slave In)
+  und MISO (Master In | Slave Out).
+
+  \begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=0.85410196625\textwidth]{SPI_basic}
+  \end{center}
+  \end{figure}
+  \section{Signalfunktionen}
+  \subsection{SCLK}
+  Das $SCLK$ Signal dient der Taktung/Synchronisierung der Übertragung. Bei
+  jeder fallenden Flanke geschieht eine Aktion, d.h. Senden/Empfangen am Master
+  bzw. Empfangen/Senden am Slave.
+  
+  \subsection{MOSI}
+  Master Out Slave In ($MOSI$, auch $SIMO$) ist die Sendedatenleitung des
+  Masters. Intern wird ein Schieberegister parallel gefüllt, um seinen Inhalt
+  dann seriell zu übertragen. Bei einer steigenden SCLK-Flanke wird das Datenbit angelegt und dann bei der
+  fallenden gesendet.
+  
+  \subsection{MISO}
+  Master In Slave Out ($MISO$, auch $SOMI$) ist die Empfangsdatenleitung des
+  Masters. Intern wird ein Schieberegister seriell mit Empfangsdaten gefüllt, um
+  dessen Inhalt dann parallel auszulesen.
+
+  \subsection{SS / CS}
+  Das Slave-Select-Signal ($\overline{SS}$) dient bei Kommunikation mit mehreren Slaves der
+  Auswahl dieser durch den Master. Bei BUS-Verbindung der Slaves benötigt jeder
+  Slave ein eigenes $\overline{SS}$ Signal, mit welchem er adressiert werden
+  kann. Zieht der Master das jeweilige $\overline{SS}$ auf LOW wird die
+  Empfangs- bzw. Sendefunktion des zugehörigen Slaves aktiviert.
+  
+  \section{Einstellung der Übertragungsgeschwindigkeit}
+  Die Übertragungsgeschwindigkeit hängt von der SCLK-Rate ab. Die ausgewählte
+  Taktquelle für SCLK kann über einen Prescaler geteilt werden.
+  \[f_{\mathrm{BitClock}} = \frac{f_{\mathrm{BRCLK}}}{\mathrm{UCBRx}}\]
+
+  \section{Vollduplexbetrieb}
+  Im Vollduplexbetrieb können sowohl Daten vom Master gesendet (MOSI) als auch
+  empfangen (MISO) werden. Die Daten werden jeweils in ein Schieberegister
+  geschrieben, wodurch sie seriell bei jeder fallenden SCLK-Flanke gesendet/empfangen werden können.
+
+\end{document}
+% Local Variables:
+% TeX-engine: luatex
+% End:
