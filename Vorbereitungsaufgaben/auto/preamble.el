@@ -2,7 +2,7 @@
  "preamble"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("babel" "ngerman") ("inputenc" "utf8") ("tcolorbox" "many") ("circuitikz" "european")))
+                     '(("babel" "ngerman") ("inputenc" "utf8") ("tcolorbox" "many") ("circuitikz" "european") ("hyperref" "colorlinks=true" "pdfborder={0 0 0}" "linkcolor=gray6")))
    (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
@@ -28,7 +28,8 @@
     "tgheros"
     "tgcursor"
     "sansmath"
-    "geometry")
+    "geometry"
+    "hyperref")
    (TeX-add-symbols
     '("commentGray" 1)
     '("inlinecode" 1)

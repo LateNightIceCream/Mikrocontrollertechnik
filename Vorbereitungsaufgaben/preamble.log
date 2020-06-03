@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.5.2)  13 MAY 2020 21:13
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.5.2)  3 JUN 2020 10:49
  restricted system commands enabled.
  file:line:error style messages enabled.
 **preamble.tex
@@ -56,7 +56,7 @@ Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
 cript
 Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.074 seconds
+luaotfload | main : initialization completed in 0.082 seconds
 
 ./preamble.tex:9: LaTeX Error: \usepackage before \documentclass.
 
@@ -259,21 +259,21 @@ l.25 \usepackage{
 between \documentclass and \begin{document}.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 17--26
-[]./graphics/
- []
-
-
-./preamble.tex:27: LaTeX Error: \usepackage before \documentclass.
+./preamble.tex:26: LaTeX Error: \usepackage before \documentclass.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.27 \usepackage{
-               fontspec}
+l.26 \usepackage{
+               titlesec}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 17--27
+[]./graphics/
+ []
 
 
 ./preamble.tex:28: LaTeX Error: \usepackage before \documentclass.
@@ -283,7 +283,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.28 \usepackage{
-               tgheros}
+               fontspec}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
@@ -295,24 +295,36 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.29 \usepackage{
-               tgcursor}
+               tgheros}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 
-./preamble.tex:31: LaTeX Error: \usepackage before \documentclass.
+./preamble.tex:30: LaTeX Error: \usepackage before \documentclass.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.31 \usepackage{
+l.30 \usepackage{
+               tgcursor}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+./preamble.tex:32: LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \usepackage{
                sansmath}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
-./preamble.tex:32: Undefined control sequence.
-l.32 \sansmath
+./preamble.tex:33: Undefined control sequence.
+l.33 \sansmath
             
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -321,19 +333,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./preamble.tex:37: LaTeX Error: \usepackage before \documentclass.
+./preamble.tex:39: LaTeX Error: \usepackage before \documentclass.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.37 \usepackage{
+l.39 \usepackage{
                geometry}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
-./preamble.tex:38: Undefined control sequence.
-l.38 \geometry
+./preamble.tex:40: Undefined control sequence.
+l.40 \geometry
             {
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -342,21 +354,21 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./preamble.tex:39: LaTeX Error: Missing \begin{document}.
+./preamble.tex:41: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39  a
+l.41  a
      4paper,
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./preamble.tex:40: Illegal unit of measure (pt inserted).
+./preamble.tex:42: Illegal unit of measure (pt inserted).
 <to be read again> 
 .
-l.40  total={0.7639320225002104\paperwidth,0.
+l.42  total={0.7639320225002104\paperwidth,0.
                                            6180339887498948\paperheight},
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -365,19 +377,19 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-./preamble.tex:40: Missing number, treated as zero.
+./preamble.tex:42: Missing number, treated as zero.
 <to be read again> 
 }
-l.40 ...4\paperwidth,0.6180339887498948\paperheight}
+l.42 ...4\paperwidth,0.6180339887498948\paperheight}
                                                   ,
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-./preamble.tex:40: Illegal unit of measure (pt inserted).
+./preamble.tex:42: Illegal unit of measure (pt inserted).
 <to be read again> 
 }
-l.40 ...4\paperwidth,0.6180339887498948\paperheight}
+l.42 ...4\paperwidth,0.6180339887498948\paperheight}
                                                   ,
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -386,10 +398,10 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-./preamble.tex:42: Illegal unit of measure (pt inserted).
+./preamble.tex:44: Illegal unit of measure (pt inserted).
 <to be read again> 
 b
-l.42  bo
+l.44  bo
       ttom = 0.1458980337503154\paperheight
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -398,19 +410,19 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-./preamble.tex:43: Missing number, treated as zero.
+./preamble.tex:45: Missing number, treated as zero.
 <to be read again> 
 }
-l.43  }
+l.45  }
      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-./preamble.tex:43: Illegal unit of measure (pt inserted).
+./preamble.tex:45: Illegal unit of measure (pt inserted).
 <to be read again> 
 }
-l.43  }
+l.45  }
      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -420,12 +432,101 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 39--46
+Overfull \hbox (20.0pt too wide) in paragraph at lines 41--48
 []a4paper,
  []
 
+./preamble.tex:51: Undefined control sequence.
+l.51 \titlespacing
+                *{\section}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./preamble.tex:51: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 \titlespacing*
+                 {\section}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./preamble.tex:51: Undefined control sequence.
+l.51 \titlespacing*{\section
+                          }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 ./preamble.tex:52: Undefined control sequence.
-l.52 \setmainfont
+l.52 {0pt}{\smallvert
+                   }{0.618\smallvert}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./preamble.tex:52: Undefined control sequence.
+l.52 {0pt}{\smallvert}{0.618\smallvert
+                                    }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./preamble.tex:53: Undefined control sequence.
+l.53 \titlespacing
+                *{\subsection}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./preamble.tex:53: Undefined control sequence.
+l.53 \titlespacing*{\subsection
+                             }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./preamble.tex:54: Undefined control sequence.
+l.54 {0pt}{0.618\smallvert
+                        }{0.382\smallvert}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./preamble.tex:54: Undefined control sequence.
+l.54 {0pt}{0.618\smallvert}{0.382\smallvert
+                                         }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 51--57
+[]*
+ []
+
+./preamble.tex:58: Undefined control sequence.
+l.58 \setmainfont
                {TeX Gyre Heros}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -434,19 +535,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./preamble.tex:52: LaTeX Error: Missing \begin{document}.
+./preamble.tex:58: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.52 \setmainfont{T
+l.58 \setmainfont{T
                  eX Gyre Heros}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./preamble.tex:53: Undefined control sequence.
-l.53 \setmonofont
+./preamble.tex:59: Undefined control sequence.
+l.59 \setmonofont
                {Inconsolatazi4}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -455,7 +556,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 52--54
+Overfull \hbox (20.0pt too wide) in paragraph at lines 58--60
 []TeX
  []
 
@@ -466,10 +567,10 @@ Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: tex)
 
 Enter file name: 
-./preamble.tex:58: Emergency stop.
+./preamble.tex:64: Emergency stop.
 <read *> 
    
-l.58 \input{../colors}
+l.64 \input{../colors}
                     
 *** (cannot \read from terminal in nonstop modes)
 
@@ -477,11 +578,11 @@ l.58 \input{../colors}
 
 Here is how much of LuaTeX's memory you used:
  13 strings out of 493864
- 100000,106986 words of node,token memory allocated 1543 words of node memory still in use:
-   9 hlist, 3 local_par, 1 dir, 25 glue, 3 kern, 5 penalty, 135 glyph, 12 attrib
-ute, 35 glue_spec, 12 attribute_list nodes
-   avail lists: 1:1,2:4,3:1,4:7,5:1,7:5,10:6
+ 100000,106986 words of node,token memory allocated 1831 words of node memory still in use:
+   12 hlist, 4 local_par, 1 dir, 33 glue, 3 kern, 7 penalty, 158 glyph, 20 attri
+bute, 35 glue_spec, 20 attribute_list nodes
+   avail lists: 1:1,2:2,3:1,4:7,5:1,7:5,10:6
  4795 multiletter control sequences out of 65536+600000
  14 fonts using 591799 bytes
  7i,0n,6p,88b,18s stack positions out of 5000i,500n,10000p,200000b,100000s
-./preamble.tex:58:  ==> Fatal error occurred, no output PDF file produced!
+./preamble.tex:64:  ==> Fatal error occurred, no output PDF file produced!

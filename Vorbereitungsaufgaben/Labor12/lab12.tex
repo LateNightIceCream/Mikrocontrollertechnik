@@ -1,0 +1,47 @@
+\documentclass[a4paper, 11pt]{article}
+
+\input{../preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includepdf{./titlepage/titlepage.pdf}
+  \clearpage
+  \setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \section{RS232-Datenübertragung}
+  \label{sec:1}
+  Die Datenübetragung mittels RS232 (Recommended Standard 232) erfolgt asynchron
+  und seriell. Das Übertragungsformat und die Übertragungsgeschwindigkeit werden
+  nicht im RS232 definiert sondern durch die Interface-Hardware
+  bestimmt, in der Regel UART. Der Standard legt die Spannungspegel zur
+  Übertragung fest. Diese liegen im Bereich $-3.3 \, \si{\volt} ... -15 \,
+  \si{\volt}$ zum Senden einer 1 und $+3.3 \si{\volt} ... +15 \, \si{\volt}$ zum
+  Senden einer 0.
+
+  \section{Datensynchronisation zwischen Sender und Empfänger}
+  Zur Synchronisation zwischen Sender und Empfänger dienen die Start- und
+  Stopp-Bits am Anfang bzw. Ende jedes Übertragungsframes. Da die
+  Übertragungsrate (Baudrate) Sender und Empfänger bekannt ist, wird dadurch
+  kein separates Taktsignal benötigt.
+
+  \section{Einstellung der Parameter}
+
+  \section{Erhöhung der Übertragungssicherheit}
+  Die UART-Schnittstelle kann konfiguriert werden, um am Ende jedes Frames ein
+  Paritätsbit zu senden/empfangen. Die Notation für das Übertragungsformat ist
+  dann z.B. 8/{\color{cyan5}{E}}/1 oder 8/{\color{orange5}{O}}/1 für gerade ({\color{cyan5}{E}}ven)
+  bzw. ungerade ({\color{orange5}{O}}dd) Parität.
+
+  \section{MAX3227E}
+  Zur Konvertierung der TTL/CMOS-Pegel ($0 \, \si{\volt}...\pm 3.3 \,
+  \si{\volt}/ \pm 5\,\si{\volt}$) des Mikrocontrollers auf die RS232-Pegel
+  (siehe \ref{sec:1}) wird ein Pegelwandler benötigt, in diesem Fall der MAX3227E.
+  
+\end{document}
+% Local Variables:
+% TeX-engine: luatex
+% End:
