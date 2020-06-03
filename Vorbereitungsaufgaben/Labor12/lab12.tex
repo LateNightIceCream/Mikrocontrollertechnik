@@ -28,7 +28,41 @@
   Übertragungsrate (Baudrate) Sender und Empfänger bekannt ist, wird dadurch
   kein separates Taktsignal benötigt.
 
-  \section{Einstellung der Parameter}
+  \section{Einstellung der Parameter, Schnittstelle USCI\_A1, }
+  
+  \begin{itemize}
+  \item[]{
+      \inlinecode{UCA1CTL0}
+      \begin{itemize}
+        \item []\inlinecode{UCMODE1} \commentGray{UART Mode}
+        \item []\inlinecode{UCSPB} \commentGray{1 Stop-Bit}
+        \item []\inlinecode{UCSYNC} \commentGray{0...Asynchroner Modus}
+      \end{itemize}
+    }
+
+   \item[]{
+      \inlinecode{UCA1CTL1}
+      \begin{itemize}
+        \item []\inlinecode{UCSSEL1} \commentGray{BRCLK Taktquelle}
+        \item []\inlinecode{UCSWRST} 
+      \end{itemize}
+    }
+
+   \item[]{
+      \inlinecode{UCA1BR0} \commentGray{Taktteiler $N$ für Baudrate $N = \frac{f_{BRCLK}}{\mathrm{Baudrate}}$}
+    }
+
+   \item[]{
+      \inlinecode{UCA1RXBUF}
+    }
+
+   \item[]{
+      \inlinecode{UC1IE}
+      \inlinecode{UC1IFG} \commentGray{Interrupts}
+    }
+
+
+  \end{itemize}
 
   \section{Erhöhung der Übertragungssicherheit}
   Die UART-Schnittstelle kann konfiguriert werden, um am Ende jedes Frames ein
